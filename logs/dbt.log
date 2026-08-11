@@ -1,0 +1,29 @@
+[0m19:59:18.812928 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11043cf10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112a8f220>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112a8fe20>]}
+
+
+============================== 19:59:18.843927 | bb2af094-e1bd-4f96-b5a3-adf0ac7f7b29 ==============================
+[0m19:59:18.843927 [info ] [MainThread]: Running with dbt=1.12.0
+[0m19:59:18.844596 [debug] [MainThread]: running dbt with arguments {'use_experimental_parser': 'False', 'log_cache_events': 'False', 'log_path': 'logs', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'no_print': 'None', 'debug': 'False', 'log_format': 'default', 'indirect_selection': 'eager', 'use_colors': 'True', 'send_anonymous_usage_stats': 'True', 'empty': 'None', 'write_json': 'True', 'cache_selected_only': 'False', 'quiet': 'False', 'static_parser': 'True', 'target_path': 'None', 'warn_error': 'None', 'version_check': 'True', 'maximum_seed_size_mib': '1', 'fail_fast': 'False', 'hints_enabled': 'True', 'partial_parse': 'True', 'profiles_dir': '/Users/nicholasbattin/.dbt', 'printer_width': '80', 'invocation_command': 'dbt init modeling-hormuz'}
+[0m19:59:18.896280 [info ] [MainThread]: Creating dbt configuration folder at /Users/nicholasbattin/.dbt
+[0m19:59:36.576403 [debug] [MainThread]: Starter project path: /Users/nicholasbattin/Downloads/DataEngineeringProjects/modeling-hormuz/.venv/lib/python3.10/site-packages/dbt/include/starter_project
+[0m19:59:36.589126 [info ] [MainThread]: Setting up your profile.
+[0m19:59:36.590580 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Runtime Error
+  No adapters available. Learn how to install an adapter by going to https://docs.getdbt.com/docs/connect-adapters#install-using-the-cli
+[0m19:59:36.909103 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": false, "command_wall_clock_time": 18.227236, "process_in_blocks": "0", "process_kernel_time": 0.690287, "process_mem_max_rss": "150700032", "process_out_blocks": "0", "process_user_time": 3.070485}
+[0m19:59:36.910614 [debug] [MainThread]: Command `dbt init` failed at 19:59:36.910422 after 18.23 seconds
+[0m19:59:36.911463 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11043cf10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112ae7580>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112c909a0>]}
+[0m19:59:36.912230 [debug] [MainThread]: Flushing usage events
+[0m19:59:37.573499 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:00:08.096819 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112bb12d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114e12e00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114e13f70>]}
+
+
+============================== 20:00:08.101160 | 818b0acf-efd8-4e9b-9a4f-a3f62c7a2689 ==============================
+[0m20:00:08.101160 [info ] [MainThread]: Running with dbt=1.12.0
+[0m20:00:08.101789 [debug] [MainThread]: running dbt with arguments {'use_colors': 'True', 'send_anonymous_usage_stats': 'True', 'printer_width': '80', 'log_format': 'default', 'introspect': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'hints_enabled': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'write_json': 'True', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'use_experimental_parser': 'False', 'invocation_command': 'dbt init modeling_hormuz', 'empty': 'None', 'indirect_selection': 'eager', 'profiles_dir': '/Users/nicholasbattin/.dbt', 'target_path': 'None', 'partial_parse': 'True', 'log_cache_events': 'False', 'no_print': 'None', 'quiet': 'False', 'maximum_seed_size_mib': '1'}
+[0m20:00:08.115272 [info ] [MainThread]: A project called modeling_hormuz already exists here.
+[0m20:00:08.118642 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 0.11379604, "process_in_blocks": "0", "process_kernel_time": 0.249162, "process_mem_max_rss": "117260288", "process_out_blocks": "0", "process_user_time": 1.493673}
+[0m20:00:08.119305 [debug] [MainThread]: Command `dbt init` succeeded at 20:00:08.119196 after 0.11 seconds
+[0m20:00:08.119749 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112bb12d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114e12d40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114e12e00>]}
+[0m20:00:08.120192 [debug] [MainThread]: Flushing usage events
+[0m20:00:08.651605 [debug] [MainThread]: An error was encountered while trying to flush usage events

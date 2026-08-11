@@ -1,0 +1,7 @@
+[project]
+name = "modeling-hormuz"
+version = "0.1.0"
+description = "Analyzing the Hormuz Strait using dbt and Python"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []

@@ -1,0 +1,4 @@
+
+On February 28th, 2026, the U.S. and Israel launched joint attacks on Iran in what is known as "Operation Epic Fury". What was supposed to be a quick operation focused on destroying Iran's nuclear capabilities and encouraging regime change later became the months-long Iran War. Shortly after the initial attacks, the IRGC (Islamic Revolutionary Guard Corps) closed the Strait of Hormuz, one of the most vital choke points for oil and gas trade, along with non-oil materials such as fetilizers and helium.
+
+This project's focus is on the volatility of the industries affected by the closure of Hormuz, along with how differ events have changed the trajectory of the war.
