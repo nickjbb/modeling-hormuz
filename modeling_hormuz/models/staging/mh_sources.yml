@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: mh_sources
+    description: "This is the source for the Hormuz project"
+    schema: raw
+    tables:
+      - name: brent_crude_usd
+        description: "This table contains the historical prices of Brent Crude in USD."
+        database: "{{ env_var('DB_NAME') }}"
+        schema: raw
+        columns:
+          - name: created_at
+            description: "The date of the price observation."
+            tests:
+              - not_null
+              - unique
+          - name: price
+            description: "The price of Brent Crude in USD on the given date."
+            tests:
+              - not_null
+      - name: wti_usd
+        description: "This table contains the historical prices of WTI in USD."
+        database: "{{ env_var('DB_NAME') }}"
+        schema: raw
+        columns:
+          - name: created_at
+            description: "The date of the price observation."
+            tests:
+              - not_null
+              - unique
+          - name: price
+            description: "The price of WTI in USD on the given date."
+            tests:
+              - not_null

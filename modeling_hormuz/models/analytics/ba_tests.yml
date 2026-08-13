@@ -1,0 +1,25 @@
+models:
+  - name: ba_mh_wti
+    description: "Business Analytics model for WTI crude oil data"
+    columns:
+      - name: wti_id
+        tests:
+          - not_null
+          - unique
+      - name: code
+        tests:
+          - not_null
+          - valid_values:
+              values: ['WTI_USD']
+  - name: ba_mh_brent
+    description: "Business Analytics model for Brent crude oil data"
+    columns:
+      - name: brent_id
+        tests:
+          - not_null
+          - unique
+      - name: code
+        tests:
+          - not_null
+          - valid_values:
+              values: ['BRENT_CRUDE_USD']
