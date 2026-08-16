@@ -4,8 +4,10 @@ import requests
 import pandas as pd
 import os
 import json
+from EIAClient import EIAClient
+from datetime import date, timedelta
 
-def extract_data_from_api(api_url: str):
+def extract_data_from_api(api_url: str, id: str, start_time: str, end_time: str) -> list[dict]:
     """
     Extracts data from the specified API URL.
 
@@ -14,16 +16,12 @@ def extract_data_from_api(api_url: str):
     """
 
     try:
-        response = requests.get(
-            api_url,
-            headers={"Authorization": f"Token {os.getenv('OIL_PRICE_API_KEY')}"},
-            timeout=10
-        )
-        response.raise_for_status()  # Raise an exception for HTTP errors
-        return response.json()  # Assuming the API returns JSON data
-    except requests.exceptions.RequestException as e:
-        print(f"Error occurred while fetching data from API: {e}")
-        return []
+        eia_client = EIAClient(os.getenv('EIA_API_KEY'))
+        eia_client.set_dataset(id)
+        data = eia_client.get_data(start_time, end_time)
+        return data['response']['data']
+    except ValueError as e:
+        return f"ValueError: {e}"
 
 
 def transform_data(data) -> pd.DataFrame:
@@ -40,12 +38,8 @@ def transform_data(data) -> pd.DataFrame:
 
     if not data:
         return pd.DataFrame()
-
-    if data['status'] != 'success':
-        print("Data extraction was not successful. Please check the API response.")
-        return pd.DataFrame()
     
-    df = pd.json_normalize(data, record_path=['data', 'prices'], meta=['status'])
+    df = pd.json_normalize(data)
 
     df['ingested_at'] = pd.Timestamp.now()
 
@@ -83,17 +77,15 @@ def run_pipeline(api_url: str, conn_string: str, table_name: str) -> None:
     """
 
     print("Running pipeline...")
-    raw_data = extract_data_from_api(api_url)
+    raw_data = extract_data_from_api(api_url, table_name, (date.today() - timedelta(weeks=33)).strftime("%Y-%m-%d"), date.today())
     transformed_data = transform_data(raw_data)
     load_data(transformed_data, conn_string, table_name)
     print("Pipeline successfully completed.")
 
 if __name__ == "__main__":
     # Example usage
-    API_URL_TEMPLATE = "https://api.oilpriceapi.com/v1/prices/past_day?by_code={}"
     CONN_STRING = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}"
     TABLE_NAMES = os.getenv('TABLE_NAMES').split(',')
 
-    for table_name in TABLE_NAMES:
-        api_url = API_URL_TEMPLATE.format(table_name)
-        run_pipeline(api_url, CONN_STRING, table_name)
+    for table in TABLE_NAMES:
+        run_pipeline(os.getenv('EIA_API_KEY'), CONN_STRING, table)
