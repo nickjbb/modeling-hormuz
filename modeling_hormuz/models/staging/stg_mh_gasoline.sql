@@ -1,5 +1,5 @@
 select
-    md5(period::text || "product-name" || value::text) as wti_id,
+    md5(period::text || "product-name" || value::text) as gas_id,
     period,
     value::numeric as "value",
     "product-name" as product_type,

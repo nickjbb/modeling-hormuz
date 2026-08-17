@@ -6,11 +6,11 @@ models:
         tests:
           - not_null
           - unique
-      - name: code
+      - name: product_type
         tests:
           - not_null
           - valid_values:
-              values: ['WTI_USD']
+              values: ['WTI Crude Oil']
   - name: ba_mh_brent
     description: "Business Analytics model for Brent crude oil data"
     columns:
@@ -18,8 +18,26 @@ models:
         tests:
           - not_null
           - unique
-      - name: code
+      - name: product_type
         tests:
           - not_null
           - valid_values:
-              values: ['BRENT_CRUDE_USD']
+              values: ['UK Brent Crude Oil']
+  - name: ba_mh_gasoline
+    description: "Business Analytics model for Gasoline data"
+    columns:
+      - name: gas_id
+        tests:
+          - not_null
+          - unique
+      - name: product_type
+        tests:
+          - not_null
+          - valid_values:
+              values: ['Total Gasoline']
+  - name: brent_crude_diff
+    description: "Difference between Brent Crude and WTI Crude Pricing"
+    columns:
+      - name: brent_wti_diff
+        tests:
+          - not null
