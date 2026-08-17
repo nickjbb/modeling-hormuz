@@ -5,6 +5,6 @@ from
 where
     brent_wti_diff is null
 or
-    date(period) > current_date()
+    date(period) > current_date
 or
-    date(period) < date('2000-01-01');
+    date(period) < date('2000-01-01')

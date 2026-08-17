@@ -9,6 +9,6 @@ select
     {{ weekly_average('stg_mh_wti', 'created_at', 'price') }} as gas_weekly_avg,
     {{ monthly_average('stg_mh_wti', 'created_at', 'price') }} as gas_monthly_avg
 from
-    {{ ref('stg_mh_wti') }} as wti
+    {{ ref('stg_mh_gasoline') }} as gasoline
 order by
     created_at asc

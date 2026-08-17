@@ -7,6 +7,7 @@ class EIAClient:
         self.api_key = api_key
         self.base_url = "https://api.eia.gov/v2/"
         self.identifier = identifier
+        self.frequency = "daily"
 
     def set_dataset(self, dataset_id: str) -> None:
 
@@ -24,7 +25,7 @@ class EIAClient:
                 self.identifier = "RNG"
             case "gasoline":
                 self.base_url += "petroleum/pri/gnd/data/"
-                self.identifier = "EMM_EPMR_PTE_NUS_DPG"
+                self.identifier = "EMM_EPM0_PTE_NUS_DPG"
             case _:
                 raise ValueError(f"Unsupported dataset_id: {dataset_id}")
 
@@ -32,7 +33,7 @@ class EIAClient:
 
         params = {
             "api_key": self.api_key,
-            "frequency": "daily",
+            "frequency": self.frequency,
             "data[0]": "value",
             "facets[series][]": self.identifier,
             "start": start_date,

@@ -5,7 +5,6 @@ select
     value::numeric as "value",
     "product-name" as product_type,
     units,
-    ingested_at,
-    units
+    ingested_at
 from
-    {{ source('mh_sources', 'brent_crude_usd') }}
+    {{ source('mh_sources', 'brent_crude') }}

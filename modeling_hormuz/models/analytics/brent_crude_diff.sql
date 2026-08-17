@@ -8,4 +8,4 @@ join
 on
 	bc.period = wc.period
 order by
-	bc."period";
+	bc."period"

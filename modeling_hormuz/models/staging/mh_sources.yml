@@ -5,7 +5,7 @@ sources:
     description: "This is the source for the Hormuz project"
     schema: raw
     tables:
-      - name: brent_crude_usd
+      - name: brent_crude
         description: "Daily Historic Data of Brent Crude in USD"
         database: "{{ env_var('DB_NAME') }}"
         schema: raw
@@ -19,7 +19,7 @@ sources:
             description: "The price of Brent Crude in USD on the given date."
             tests:
               - not_null
-      - name: wti_usd
+      - name: wti_crude
         description: "Daily Historical Data of WTI Crude in USD"
         database: "{{ env_var('DB_NAME') }}"
         schema: raw
