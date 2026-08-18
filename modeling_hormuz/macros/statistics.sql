@@ -1,41 +1,23 @@
-{% macro weekly_average(table_name, date_column, value_column) %}
-    (select
-        avg({{ value_column }}) as weekly_avg
-    from {{ table_name }}
-    where date_trunc('week', {{ date_column }}) = date_trunc('week', current_date))
+{% macro weekly_average(date_column, value_column) %}
+    avg({{value_column}}) over (order by {{ date_column }} rows between 6 preceding and current row)
 {% endmacro %}
 
-{% macro monthly_average(table_name, date_column, value_column) %}
-    (select
-        avg({{ value_column }}) as monthly_avg
-    from {{ table_name }}
-    where date_trunc('month', {{ date_column }}) = date_trunc('month', current_date))
+{% macro monthly_average(date_column, value_column) %}
+    avg({{ value_column }}) over (order by {{ date_column }} rows between 30 preceding and current row)
 {% endmacro %}
 
-{% macro weekly_max(table_name, date_column, value_column) %}
-    (select
-        max({{ value_column }}) as weekly_max
-    from {{ table_name }}
-    where date_trunc('week', {{ date_column }}) = date_trunc('week', current_date))
+{% macro weekly_max(date_column, value_column) %}
+    max({{ value_column }}) over (order by {{ date_column }} rows between 6 preceding and current row)
 {% endmacro %}
 
-{% macro monthly_max(table_name, date_column, value_column) %}
-    (select
-        max({{ value_column }}) as monthly_max
-    from {{ table_name }}
-    where date_trunc('month', {{ date_column }}) = date_trunc('month', current_date))
+{% macro monthly_max(date_column, value_column) %}
+    max({{ value_column }}) over (order by {{ date_column }} rows between 30 preceding and current row)
 {% endmacro %}
 
-{% macro weekly_min(table_name, date_column, value_column) %}
-    (select
-        min({{ value_column }}) as weekly_min
-    from {{ table_name }}
-    where date_trunc('week', {{ date_column }}) = date_trunc('week', current_date))
+{% macro weekly_min(date_column, value_column) %}
+    min({{ value_column }}) over (order by {{ date_column }} rows between 6 preceding and current row)
 {% endmacro %}
 
-{% macro monthly_min(table_name, date_column, value_column) %}
-    (select
-        min({{ value_column }}) as monthly_min
-    from {{ table_name }}
-    where date_trunc('month', {{ date_column }}) = date_trunc('month', current_date))
+{% macro monthly_min(date_column, value_column) %}
+    min({{ value_column }}) over (order by {{ date_column }} rows between 30 preceding and current row)
 {% endmacro %}

@@ -1,6 +1,6 @@
 select
     md5(period::text || "product-name" || value::text) as gas_id,
-    period,
+    period::date,
     value::numeric as "value",
     "product-name" as product_type,
     units,
