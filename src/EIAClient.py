@@ -17,15 +17,19 @@ class EIAClient:
             case "brent_crude":
                 self.base_url += "petroleum/pri/spt/data/"
                 self.identifier = "RBRTE"
+                self.frequency = "daily"
             case "wti_crude":
                 self.base_url += "petroleum/pri/spt/data/"
                 self.identifier = "RWTC"
+                self.frequency = "daily"
             case "natural_gas":
                 self.base_url += "naturalgas/"
                 self.identifier = "RNG"
+                self.frequency = "daily"
             case "gasoline":
                 self.base_url += "petroleum/pri/gnd/data/"
                 self.identifier = "EMM_EPM0_PTE_NUS_DPG"
+                self.frequency = "weekly"
             case _:
                 raise ValueError(f"Unsupported dataset_id: {dataset_id}")
 
