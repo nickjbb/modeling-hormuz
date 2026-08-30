@@ -77,7 +77,7 @@ def run_pipeline(api_url: str, conn_string: str, table_name: str) -> None:
     """
 
     print("Running pipeline...")
-    raw_data = extract_data_from_api(api_url, table_name, (date.today() - timedelta(weeks=33)).strftime("%Y-%m-%d"), date.today())
+    raw_data = extract_data_from_api(api_url, table_name, (date.today() - timedelta(weeks=1)).strftime("%Y-%m-%d"), date.today())
     transformed_data = transform_data(raw_data)
     load_data(transformed_data, conn_string, table_name)
     print("Pipeline successfully completed.")

@@ -3,3 +3,4 @@ psygopg2
 dbt-core
 dbt-postgres
 sqlalchemy
+apache-airflow

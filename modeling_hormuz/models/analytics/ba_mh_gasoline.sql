@@ -3,12 +3,12 @@ select
     value,
     product_type,
     period,
-    {{ 2_unit_max('period', 'value') }} as 2_week_max,
-    {{ 7_unit_max('period', 'value') }} as 7_week_max,
-    {{ 2_unit_min('period', 'value') }} as 2_week_min,
-    {{ 7_unit_min('period', 'value') }} as 7_week_min,
-    {{ 2_unit_average('period', 'value') }} as 2_week_avg,
-    {{ 7_unit_average('period', 'value') }} as 7_week_avg
+    {{ two_unit_max('period', 'value') }} as gas_two_week_max,
+    {{ seven_unit_max('period', 'value') }} as gas_seven_week_max,
+    {{ two_unit_min('period', 'value') }} as gas_two_week_min,
+    {{ seven_unit_min('period', 'value') }} as gas_seven_week_min,
+    {{ two_unit_average('period', 'value') }} as gas_two_week_avg,
+    {{ seven_unit_average('period', 'value') }} as gas_seven_week_avg
 from
     {{ ref('stg_mh_gasoline') }} as gasoline
 order by
