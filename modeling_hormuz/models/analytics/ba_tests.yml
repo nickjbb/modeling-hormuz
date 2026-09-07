@@ -1,46 +1,37 @@
 models:
-  - name: ba_mh_wti
-    description: "Business Analytics model for WTI crude oil data"
+  - name: ba_mh_unit_table
     columns:
-      - name: wti_id
+      - name: unit_key
+        tests:
+          - unique
+          - not_null
+      - name: units
         tests:
           - not_null
           - unique
-      - name: product_type
-        tests:
-          - not_null
-          - accepted_values:
-              arguments:
-                values: ['WTI Crude Oil']
-  - name: ba_mh_brent
-    description: "Business Analytics model for Brent crude oil data"
+  - name: ba_mh_product_table
     columns:
-      - name: brent_id
+      - name: product_key
+        tests:
+          - unique
+          - not_null
+      - name: product_type
         tests:
           - not_null
           - unique
-      - name: product_type
-        tests:
-          - not_null
-          - accepted_values:
-              arguments:
-                values: ['UK Brent Crude Oil']
-  - name: ba_mh_gasoline
-    description: "Business Analytics model for Gasoline data"
+  - name: ba_mh_date_table
     columns:
-      - name: gas_id
+      - name: date_key
+        tests:
+          - unique
+          - not_null
+      - name: period
         tests:
           - not_null
           - unique
-      - name: product_type
-        tests:
-          - not_null
-          - accepted_values:
-              arguments:
-                values: ['Total Gasoline']
-  - name: brent_crude_diff
-    description: "Difference between Brent Crude and WTI Crude Pricing"
+  - name: ba_mh_price_table
     columns:
-      - name: brent_wti_diff
+      - name: price_key
         tests:
+          - unique
           - not_null
